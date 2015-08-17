@@ -1,7 +1,7 @@
 ; docformat = 'rst'
 
 ;+
-; Flow field at a specified point due to a localized source
+; Flow field at specified points due to a localized source
 ; of flow consisting of an Oseen tensor and a driving force.
 ;
 ; :Properties:
@@ -22,7 +22,7 @@
 ;
 ; :Params:
 ;    r : in, required, type=fltarr
-;        3-element position vector
+;        3xN element array of coordinates
 ;
 ; :Returns:
 ;    3-element velocity vector
