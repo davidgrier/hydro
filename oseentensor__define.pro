@@ -13,9 +13,6 @@
 ;    tensor
 ;        3x3 array specifying the elements of the Oseen tensor.
 ;
-; :Inherits:
-;    IDL_Object
-;
 ; :Author:
 ;    David G. Grier, New York University.
 ;
@@ -145,6 +142,8 @@ end
 ;        viscosity of fluid in SI units.
 ;    tensor
 ;        3x3 array specifying the elements of the Oseen tensor.
+;
+; :Hidden:
 ;-
 pro oseentensor__define
 
