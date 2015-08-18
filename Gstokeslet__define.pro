@@ -2,7 +2,7 @@
 
 ;+
 ; Oseen tensor for a stokelet.
-; $$\tensor{G}_{\alpha\beta}(\vec{r})
+; $$\mathsf{G}_{\alpha\beta}(\vec{r})
 ; =
 ; \frac{1}{8 \pi \eta} \,
 ; \left(
@@ -23,7 +23,7 @@
 ;
 ; :Params:
 ;    r : in, required, type=`fltarr(3)`
-;        Position of the stokeslet in Cartesian coordinates.
+;        Position in Cartesian coordinates.
 ;-
 pro Gstokeslet::Compute, r
 

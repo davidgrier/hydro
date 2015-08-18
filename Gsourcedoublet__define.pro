@@ -2,7 +2,13 @@
 
 ;+
 ; Oseen tensor for a source doublet oriented relative to the
-; plane $z = 0$
+; plane $z = 0$.
+; $$\mathsf{G}_{\alpha \beta}(\vec{r})
+;    =
+;    (1 - 2 \delta_{\beta z}) \,
+;    \frac{\partial}{\partial r_\beta} \,
+;    \mathsf{G}^\text{stokeslet}_{\alpha \beta}(\vec{r})
+; $$
 ;
 ; :Author:
 ;    David G. Grier, New York University
@@ -16,8 +22,8 @@
 ; position.
 ;
 ; :Params:
-;    r : in, required, type=fltarr(3)
-;        Position of the source doublet in Cartesian coordinates.
+;    r : in, required, type=`fltarr(3)`
+;        Position in Cartesian coordinates.
 ;-
 pro Gsourcedoublet::Compute, r
 

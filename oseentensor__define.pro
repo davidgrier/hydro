@@ -24,6 +24,10 @@
 ; Check a provided vector to ensure that it has
 ; a compatible type are correct number of elements.
 ;
+; :Params:
+;    r : in, required, type=`fltarr(3)`
+;        Position in Cartesian cooardinates
+;
 ; :Private:
 ;-
 function oseentensor::CheckVector, r
@@ -135,7 +139,7 @@ end
 ; oseentensor__define
 ;
 ; :Fields:
-;   position
+;    position
 ;        three-element array of Cartesian coordinates
 ;        specifying position of the source.
 ;    viscosity

@@ -3,6 +3,13 @@
 ;+
 ; Oseen tensor for a stokes doublet oriented relative to the
 ; plane $z = 0$.
+; $$\mathsf{G}_{\alpha \beta}(\vec{r})
+;    =
+;    \frac{1 - 2 \delta_{\beta z}}{8 \pi \eta} \,
+;    \frac{\partial}{\partial r_\beta} \left(
+;        \frac{r_\alpha}{r^3}
+;    \right)
+; $$
 ;
 ; :Author:
 ;    David G. Grier, New York University
@@ -16,8 +23,8 @@
 ; position.
 ;
 ; :Params:
-;    r : in, required, type=fltarr(3)
-;        Position of the stokes doublet in Cartesian coordinates.
+;    r : in, required, type=`fltarr(3)`
+;        Position in Cartesian coordinates.
 ;-
 pro Gstokesdoublet::Compute, r
 
