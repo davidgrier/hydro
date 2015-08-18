@@ -4,10 +4,10 @@
 ; Flow field $\vec{u}(\vec{r})$
 ; at specified points $\vec{r}$
 ; due to a localized source
-; of flow consisting of an Oseen tensor $\tensor{G}(\vec{r})$
+; of flow consisting of an Oseen tensor $\mathsf{G}(\vec{r})$
 ; and a driving force $\vec{f}$.
 ; $$\vec{u}(\vec{r}) =
-;    \tensor{G}(\vec{r} - \vec{r}_0) \cdot \vec{f}
+;    \mathsf{G}(\vec{r} - \vec{r}_0) \cdot \vec{f}_0
 ; $$
 ;
 ; :Properties:
