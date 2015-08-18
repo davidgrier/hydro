@@ -1,7 +1,15 @@
 ; docformat = 'rst'
 
 ;+
-; Oseen tensor for a stokelet
+; Oseen tensor for a stokelet.
+; $$\tensor{G}_{\alpha\beta}(\vec{r})
+; =
+; \frac{1}{8 \pi \eta} \,
+; \left(
+;    \frac{\delta_{\alpha\beta}}{r}
+;    +
+;    \frac{r_\alpha r_\beta}{r^3}
+; \right)$$
 ;
 ; :Author:
 ;    David G. Grier, New York University
@@ -14,8 +22,8 @@
 ; Compute the Oseen tensor for a stokeslet at a specified position
 ;
 ; :Params:
-;    r : in, required, type=fltarr
-;        3-element position vector
+;    r : in, required, type=`fltarr(3)`
+;        Position of the stokeslet in Cartesian coordinates.
 ;-
 pro Gstokeslet::Compute, r
 

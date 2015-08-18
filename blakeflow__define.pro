@@ -2,7 +2,7 @@
 
 ;+
 ; Flow field at specified points due to a stokeslet near
-; a horizontal wall in the plane z = 0.
+; a horizontal wall in the plane $z = 0$.
 ;
 ; Reference:
 ; J. R. Blake, "A note on the image system for a stokeslet in

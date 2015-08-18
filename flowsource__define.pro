@@ -1,12 +1,18 @@
 ; docformat = 'rst'
 
 ;+
-; Flow field at specified points due to a localized source
-; of flow consisting of an Oseen tensor and a driving force.
+; Flow field $\vec{u}(\vec{r})$
+; at specified points $\vec{r}$
+; due to a localized source
+; of flow consisting of an Oseen tensor $\tensor{G}(\vec{r})$
+; and a driving force $\vec{f}$.
+; $$\vec{u}(\vec{r}) =
+;    \tensor{G}(\vec{r} - \vec{r}_0) \cdot \vec{f}
+; $$
 ;
 ; :Properties:
 ;    oseentensor
-;        Object reference to the Oseen tensor describing the source.
+;        Reference to the `oseentensor` object describing the source.
 ;    force
 ;        3-element vector describing the force responsible for the flow.
 ;
@@ -21,11 +27,11 @@
 ; Calculate the flow velocity at r due to the specified source.
 ;
 ; :Params:
-;    r : in, required, type=fltarr
-;        3xN element array of coordinates
+;    r : in, required, type=`fltarr(3,N)`
+;        Array of N Cartesian coordinates.
 ;
 ; :Returns:
-;    3-element velocity vector
+;    3xN array of velocity vectors at each coordinate.
 ;-
 function flowsource::Compute, r
 
@@ -76,13 +82,13 @@ end
 ;
 ; :Params:
 ;    oseentensor
-;        Oseen tensor object reference for source.
+;        Reference to `oseentensor` object describing flow.
 ;
 ; :Keywords:
-;    force : in, optional, type=keyword
-;        3-element force vector in units of newtons
-;    extra : in, optional, type=keyword
-;        Keywords for the Oseen tensor
+;    force : in, optional, type=`fltarr(3)`
+;        Force vector in units of newtons
+;    extra : in, optional, type=keywords
+;        Keywords for the Oseen tensor describing the flow
 ;-
 function flowsource::Init, oseentensor, $
                            force = force, $
@@ -109,7 +115,7 @@ end
 ;
 ; :Fields:
 ;    oseentensor
-;        Object reference to an Oseen tensor describing the
+;        Reference to an `oseentensor` object describing the
 ;        flow source.
 ;    force
 ;        3-element array describing force creating the flow

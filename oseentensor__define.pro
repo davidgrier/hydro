@@ -45,8 +45,8 @@ end
 ; Calculate the Oseen tensor at a specified position.
 ; 
 ; :Params:
-;    r : in, required, type=fltarr
-;        3-element position vector
+;    r : in, required, type=`fltarr(3)`
+;        Position in Cartesian coordinates.
 ;
 ; :Returns:
 ;    3x3 real-valued Oseen tensor
@@ -63,8 +63,8 @@ end
 ; Calculate the Oseen tensor at a specified position.
 ; 
 ; :Params:
-;    r : in, required, type=fltarr
-;        3-element position vector
+;    r : in, required, type=`fltarr(3)`
+;        Position in Cartesian coordinates.
 ;-
 pro oseentensor::Compute, r
 
@@ -109,10 +109,10 @@ end
 ;    1 for success, 0 for failure
 ;
 ; :Keywords:
-;    position : in, optional, type=keywords
-;        3-element position vector
-;    viscosity : in, optional, type=keywords
-;        real-valued viscosity of medium
+;    position : in, optional, type=`fltarr(3)`
+;        Position of source in Cartesian coordinates.
+;    viscosity : in, optional, type=`float`
+;        Viscosity of medium.
 ;-
 function oseentensor::Init, position = position, $
                             viscosity = viscosity

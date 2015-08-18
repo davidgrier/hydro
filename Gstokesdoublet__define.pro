@@ -2,7 +2,7 @@
 
 ;+
 ; Oseen tensor for a stokes doublet oriented relative to the
-; plane z = 0.
+; plane $z = 0$.
 ;
 ; :Author:
 ;    David G. Grier, New York University
@@ -16,8 +16,8 @@
 ; position.
 ;
 ; :Params:
-;    r : in, required, type=fltarr
-;        3-element position vector
+;    r : in, required, type=fltarr(3)
+;        Position of the stokes doublet in Cartesian coordinates.
 ;-
 pro Gstokesdoublet::Compute, r
 

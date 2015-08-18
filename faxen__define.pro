@@ -1,18 +1,21 @@
 ; docformat = 'rst'
 
 ;+
-; Calculate the velocity of a sphere of specified radius
-; at a specified set of points within a hydrodynamic flow.
+; Calculate the velocity, $\vec{v}(\vec{r})$,
+; of a sphere of radius $a$
+; at position(s) $\vec{r}$ within a hydrodynamic flow,
+; $\vec{u}(\vec{r})$.
 ;
 ; The velocity is computed according to
 ; Faxen's first law:
-; $$\vec{v}(\vec{r}) = \vec{u}(\vec{r}) + a^2/6 \nabla^2 \vec{u}$$
+; $$\vec{v}(\vec{r}) = \vec{u}(\vec{r}) +
+;                      \frac{a^2}{6} \, \nabla^2 \vec{u}$$
 ;
 ; :Properties:
 ;    radius
-;        Radius of the sphere.
+;        Radius of the sphere in meters.
 ;    flow
-;        Object reference to a flowfield object
+;        Object reference to a ```flowfield``` object
 ;        defining the hydrodynamic flow.
 ;
 ; :Author:
@@ -26,7 +29,8 @@
 ; Calculate the velocity of the sphere at a specified
 ; set of points within the flow according to
 ; Faxen's first law:
-; $$\vec{v}(\vec{r}) = \vec{u}(\vec{r}) + a^2/6 \nabla^2 \vec{u}$$
+; $$\vec{v}(\vec{r}) = \vec{u}(\vec{r}) +
+;                      \frac{a^2}{6} \, \nabla^2 \vec{u}$$
 ;
 ; :Params:
 ;    r : in, required, type=fltarr(3,N)
@@ -96,7 +100,7 @@ end
 ;        Radius of the sphere in meters.
 ;        Default: 1.
 ;    flow : in, optional, type=object
-;        Object reference to a flowfield or flowsource
+;        Object reference to a ```flowfield``` or ```flowsource```
 ;        responsible for the hydrodynamic flow around the sphere.
 ;-
 function faxen::Init, radius = radius, $
@@ -123,10 +127,10 @@ end
 ;
 ; :Fields:
 ;    radius
-;        floating-point radius of the sphere in meters.
+;        Radius of the sphere in meters.
 ;    flow
-;        object reference to a flowsource or flowfield
-;        that creates a hydrodynamic flow around the sphere.
+;        Object reference to a ```flowsource``` or ```flowfield```
+;        that creates a hydrodynamic flow $\vec{u}(\vec{r})$ around the sphere.
 ;
 ; :Hidden:
 ;-

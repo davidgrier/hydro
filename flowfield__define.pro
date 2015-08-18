@@ -1,10 +1,11 @@
 ; docformat = 'rst'
 
 ;+
-; Flow field at specified points due to a set of flow sources.
+; Flow field $\vec{u}(\vec{r})$
+; at specified points $\vec{r}$ due to a set of flow sources.
 ;
 ; :Properties:
-;    sources: ordered list of object references to flow sources
+;    sources: list of references to ```flowsource``` objects.
 ;
 ; :Author:
 ;    David G. Grier, New York University
@@ -14,15 +15,16 @@
 ;-
 
 ;+
-; Calculate the flow velocity at positions r due to the
+; Calculate the flow velocity $\vec{u}(\vec{r})$
+; at positions $\vec{r}$ due to the
 ; specified set of sources.
 ;
 ; :Params:
-;    r : in, required, type=fltarr
-;        3xN element array of coordinates
+;    r : in, required, type=fltarr(3,N)
+;        Array of N sets of Cartesian coordinates, $\vec{r}$.
 ;
 ; :Returns:
-;    3xN element array of velocity vectors
+;    3xN element array of velocity vectors, $\vec{u}(\vec{r})$.
 ;-
 function flowfield::Compute, r
 
@@ -37,10 +39,10 @@ function flowfield::Compute, r
 end
 
 ;+
-; Add a flow source to the list of sources.
+; Add a ```flowsource``` object to the list of sources.
 ;
 ; :Params:
-;    source : in, required, type=flowsource()
+;    source : in, required, type=flowsource
 ;-
 pro flowfield::Add, source
 
@@ -69,7 +71,7 @@ end
 ;
 ; :Fields:
 ;    sources
-;        ordered list of object references to flow sources.
+;        list of references to ```flowsource``` objects.
 ;
 ; :Hidden:
 ;-
