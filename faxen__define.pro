@@ -6,7 +6,7 @@
 ;
 ; The velocity is computed according to
 ; Faxen's first law:
-; \vec{v}(\vec{r}) = \vec{u}(\vec{r}) + a^2/6 \nabla^2 \vec{u}
+; $$\vec{v}(\vec{r}) = \vec{u}(\vec{r}) + a^2/6 \nabla^2 \vec{u}$$
 ;
 ; :Properties:
 ;    radius
@@ -26,11 +26,11 @@
 ; Calculate the velocity of the sphere at a specified
 ; set of points within the flow according to
 ; Faxen's first law:
-; \vec{v}(\vec{r}) = \vec{u}(\vec{r}) + a^2/6 \nabla^2 \vec{u}
+; $$\vec{v}(\vec{r}) = \vec{u}(\vec{r}) + a^2/6 \nabla^2 \vec{u}$$
 ;
 ; :Params:
-;    r : in, required, type=fltarr
-;        3xN element set of coordinates.
+;    r : in, required, type=fltarr(3,N)
+;        Array of N Cartesian coordinates.
 ;-
 function faxen::Compute, r
 
@@ -92,10 +92,10 @@ end
 ;    1 for success, 0 for failure
 ;
 ; :Keywords:
-;    radius : in, optional, type=keywords
+;    radius : in, optional, type=float
 ;        Radius of the sphere in meters.
 ;        Default: 1.
-;    flow : in, optional, type=keywords
+;    flow : in, optional, type=object
 ;        Object reference to a flowfield or flowsource
 ;        responsible for the hydrodynamic flow around the sphere.
 ;-
