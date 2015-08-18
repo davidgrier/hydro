@@ -5,7 +5,7 @@
 ; at specified points $\vec{r}$ due to a set of flow sources.
 ;
 ; :Properties:
-;    sources: list of references to ```flowsource``` objects.
+;    sources: list of references to `flowsource` objects.
 ;
 ; :Author:
 ;    David G. Grier, New York University
@@ -20,7 +20,7 @@
 ; specified set of sources.
 ;
 ; :Params:
-;    r : in, required, type=fltarr(3,N)
+;    r : in, required, type=`fltarr(3,N)`
 ;        Array of N sets of Cartesian coordinates, $\vec{r}$.
 ;
 ; :Returns:
@@ -39,10 +39,10 @@ function flowfield::Compute, r
 end
 
 ;+
-; Add a ```flowsource``` object to the list of sources.
+; Add a `flowsource` object to the list of sources.
 ;
 ; :Params:
-;    source : in, required, type=flowsource
+;    source : in, required, type=`flowsource`
 ;-
 pro flowfield::Add, source
 
@@ -71,7 +71,7 @@ end
 ;
 ; :Fields:
 ;    sources
-;        list of references to ```flowsource``` objects.
+;        list of references to `flowsource` objects.
 ;
 ; :Hidden:
 ;-
