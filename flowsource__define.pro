@@ -45,7 +45,7 @@ end
 ; flowsource::SetProperty
 ;-
 pro flowsource::SetProperty, force = force, $
-                            _ref_extra = re
+                             _extra = re
 
   COMPILE_OPT IDL2, HIDDEN
 
