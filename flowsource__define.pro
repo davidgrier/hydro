@@ -5,16 +5,18 @@
 ; at specified points $\vec{r}$
 ; due to a localized source
 ; of flow consisting of an Oseen tensor $\mathsf{G}(\vec{r})$
-; and a driving force $\vec{f}$.
+; and a driving force $\vec{f}_0$.
 ; $$\vec{u}(\vec{r}) =
 ;    \mathsf{G}(\vec{r} - \vec{r}_0) \cdot \vec{f}_0
 ; $$
 ;
 ; :Properties:
 ;    oseentensor
-;        Reference to the `oseentensor` object describing the source.
+;        Reference to the `oseentensor` object describing the source,
+;        $\mathsf{G}(\vec{r})$.
 ;    force
-;        3-element vector describing the force responsible for the flow.
+;        3-element vector describing the force $\vec{f}_0$
+;        responsible for the flow.
 ;
 ; :Author:
 ;    David G. Grier, New York University
