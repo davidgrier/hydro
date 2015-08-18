@@ -61,20 +61,20 @@ end
 ;    viscosity
 ;        viscosity of medium
 ;-
-function blakeflow::Init, _extra = extra
+function blakeflow::Init, position = position, $
+                          force = force, $
+                          viscosity = viscosity
 
   COMPILE_OPT IDL2, HIDDEN
 
   void = self.flowfield::Init()
   
-  src = flowsource(Gstokeslet(_extra = extra), $
-                   _extra = extra)
+  src = flowsource(Gstokeslet(position = position, viscosity = viscosity), $
+                   force = force)
 
   r0 = src.position
   r1 = r0 * [1., 1., -1.]
   h = r0[2]
-  force = src.force
-  viscosity = src.viscosity
 
   self.add, src
 
