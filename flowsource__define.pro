@@ -89,8 +89,6 @@ end
 ; :Keywords:
 ;    force : in, optional, type=`fltarr(3)`
 ;        Force vector in units of newtons
-;    extra : in, optional, type=keywords
-;        Keywords for the Oseen tensor describing the flow
 ;-
 function flowsource::Init, oseentensor, $
                            force = force, $

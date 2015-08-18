@@ -33,7 +33,7 @@
 ;                      \frac{a^2}{6} \, \nabla^2 \vec{u}$$
 ;
 ; :Params:
-;    r : in, required, type=fltarr(3,N)
+;    r : in, required, type=`fltarr(3,N)`
 ;        Array of N Cartesian coordinates.
 ;-
 function faxen::Compute, r
