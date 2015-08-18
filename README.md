@@ -1,4 +1,4 @@
 # hydro
 ## Stokeslet API for IDL
 
-[IDLdoc Documentation](docs/index.html)
+[IDLdoc Documentation][http://htmlpreview.github.com/?https://github.com/davidgrier/hydro/docs/]
