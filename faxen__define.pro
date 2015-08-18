@@ -13,10 +13,10 @@
 ;
 ; :Properties:
 ;    radius
-;        Radius of the sphere in meters.
+;        Radius $a$ of the sphere in meters.
 ;    flow
-;        Object reference to a ```flowfield``` object
-;        defining the hydrodynamic flow.
+;        Object reference to a `flowfield` object
+;        defining the hydrodynamic flow, $\vec{u}(\vec{r})$.
 ;
 ; :Author:
 ;    David G. Grier, New York University
@@ -96,12 +96,12 @@ end
 ;    1 for success, 0 for failure
 ;
 ; :Keywords:
-;    radius : in, optional, type=float
-;        Radius of the sphere in meters.
-;        Default: 1.
-;    flow : in, optional, type=object
-;        Object reference to a ```flowfield``` or ```flowsource```
-;        responsible for the hydrodynamic flow around the sphere.
+;    radius : in, optional, type=`float`, default=`1.`
+;        Radius $a$ of the sphere in meters.
+;    flow : in, optional, type=`object`
+;        Object reference to a `flowfield` or `flowsource`
+;        responsible for the hydrodynamic flow $\vec{u}(\vec{r})$
+;        around the sphere.
 ;-
 function faxen::Init, radius = radius, $
                       flow = flow
@@ -127,10 +127,11 @@ end
 ;
 ; :Fields:
 ;    radius
-;        Radius of the sphere in meters.
+;        Radius of the sphere $a$ in meters.
 ;    flow
-;        Object reference to a ```flowsource``` or ```flowfield```
-;        that creates a hydrodynamic flow $\vec{u}(\vec{r})$ around the sphere.
+;        Object reference to a `flowsource` or `flowfield```
+;        that creates a hydrodynamic flow $\vec{u}(\vec{r})$
+;        around the sphere.
 ;
 ; :Hidden:
 ;-
