@@ -76,29 +76,20 @@ function blakeflow::Init, _ref_extra = extra
   src = flowsource(Gstokeslet(_extra = extra), $
                    _extra = extra)
 
+  force = src.force
   r0 = src.position
   r1 = r0 * [1., 1., -1.]
   h = r0[2]
-
-  force = src.force
-  radius = src.radius
-  viscosity = src.viscosity
-
+  
   self.add, src
 
-  self.add, flowsource(Gstokeslet(position = r1, $
-                                  viscosity = viscosity, $
-                                  radius = radius), $
+  self.add, flowsource(Gstokeslet(position = r1, _extra = extra), $
                        force = -force)
   
-  self.add, flowsource(Gsourcedoublet(position = r1, $
-                                      viscosity = viscosity, $
-                                      radius = radius), $
+  self.add, flowsource(Gsourcedoublet(position = r1, _extra = extra), $
                        force = -2.*h*force)
 
-  self.add, flowsource(Gstokesdoublet(position = r1, $
-                                      viscosity = viscosity, $
-                                      radius = radius), $
+  self.add, flowsource(Gstokesdoublet(position = r1, _extra = extra), $
                        force = 2.*h^2*force)
   return, 1
 end
