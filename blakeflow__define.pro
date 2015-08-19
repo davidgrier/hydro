@@ -40,10 +40,14 @@ end
 ;+
 ; blakeflow::GetProperty
 ;-
-pro blakeflow::GetProperty, _ref_extra = re
+pro blakeflow::GetProperty, sources = sources, $
+                            _ref_extra = re
 
   COMPILE_OPT IDL2, HIDDEN
 
+  if arg_present(sources) then $
+     sources = self.sources
+  
   (self.sources[0]).GetProperty, _extra = re
 end
 
@@ -72,13 +76,15 @@ function blakeflow::Init, _ref_extra = extra
   src = flowsource(Gstokeslet(_extra = extra), $
                    _extra = extra)
 
-
   r0 = src.position
   r1 = r0 * [1., 1., -1.]
   h = r0[2]
-  viscosity = src.viscosity
+
   force = src.force
   radius = src.radius
+  viscosity = src.viscosity
+
+  self.add, src
 
   self.add, flowsource(Gstokeslet(position = r1, $
                                   viscosity = viscosity, $
