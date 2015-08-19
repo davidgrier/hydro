@@ -72,11 +72,11 @@ function blakeflow::Init, position = position, $
   src = flowsource(Gstokeslet(position = position, viscosity = viscosity), $
                    force = force)
 
+  help, force
+
   r0 = src.position
   r1 = r0 * [1., 1., -1.]
   h = r0[2]
-
-  self.add, src
 
   self.add, flowsource(Gstokeslet(position = r1, $
                                   viscosity = viscosity), $
