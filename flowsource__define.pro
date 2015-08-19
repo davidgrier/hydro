@@ -99,13 +99,17 @@ function flowsource::Init, oseentensor, $
   if isa(oseentensor, 'oseentensor') then begin
      self.oseentensor = oseentensor
      self.oseentensor.setproperty, _extra = re
-  endif else $
-     self.oseentensor = oseentensor(_extra = re)
+  endif else begin
+     oseentensor = oseentensor(_extra = re)
+     self.oseentensor = oseentensor
+  endelse
   
   if isa(force, /number, /array) && n_elements(force) eq 3 then $
      self.force = float(force) $
-  else $
-     self.force = [0., 0., 1.]
+  else begin
+     force = [0., 0., 1.]
+     self.force = force
+  endelse
 
   return, 1B
 end
