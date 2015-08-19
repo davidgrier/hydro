@@ -12,7 +12,7 @@
 ;        viscosity of fluid in SI units.
 ;    tensor
 ;        3x3 array specifying the elements of the Oseen tensor.
-;    minimum_separation
+;    radius
 ;        distance of closest approach.
 ;
 ; :Author:
@@ -51,7 +51,7 @@ function oseentensor::CheckVector, r
   if size(r, /n_dimensions) ne 1 then $
      return, 0
 
-  return, sqrt(total((r - self.position)^2)) > self.minimum_separation
+  return, sqrt(total((r - self.position)^2)) > self.radius
 end
 
 ;+
@@ -91,7 +91,7 @@ end
 ;-
 pro oseentensor::SetProperty, position = position, $
                               viscosity = viscosity, $
-                              minimum_separation = ms
+                              radius = radius
 
   COMPILE_OPT IDL2, HIDDEN
 
@@ -101,8 +101,8 @@ pro oseentensor::SetProperty, position = position, $
   if isa(viscosity, /number, /scalar) && (viscosity gt 0.) then $
      self.viscosity = float(viscosity)
 
-  if isa(ms, /number, /scalar) && (ms gt 0.) then $
-     self.minimum_separation = float(ms)
+  if isa(radius, /number, /scalar) && (radius gt 0.) then $
+     self.radius = float(radius)
 end
 
 ;+
@@ -111,15 +111,14 @@ end
 pro oseentensor::GetProperty, tensor = tensor, $
                               position = position, $
                               viscosity = viscosity, $
-                              minimum_separation = minimum_separation
+                              radius = radius
 
   COMPILE_OPT IDL2, HIDDEN
 
   if arg_present(tensor) then tensor = self.tensor
   if arg_present(position) then position = self.position
   if arg_present(viscosity) then viscosity = self.viscosity
-  if arg_present(minimum_separation) then $
-     minimum_separation = self.minimum_separation
+  if arg_present(radius) then radius = self.radius
 end
 
 ;+
@@ -133,11 +132,11 @@ end
 ;        Position of source in Cartesian coordinates.
 ;    viscosity : in, optional, type=`float`
 ;        Viscosity of medium.
-;    minimum_separation: in, optional, type=`float`
+;    radius: in, optional, type=`float`
 ;-
 function oseentensor::Init, position = position, $
                             viscosity = viscosity, $
-                            minimum_separation = ms
+                            radius = radius
 
   COMPILE_OPT IDL2, HIDDEN
 
@@ -150,8 +149,8 @@ function oseentensor::Init, position = position, $
                    float(viscosity) : $
                    0.001
 
-  if isa(ms, /number, /scalar) && (ms gt 0.) then $
-     self.minimum_separation = float(ms)
+  if isa(radius, /number, /scalar) && (radius gt 0.) then $
+     self.radius = float(radius)
 
   return, (self.viscosity gt 0.)
 end
@@ -167,7 +166,7 @@ end
 ;        viscosity of fluid in SI units.
 ;    tensor
 ;        3x3 array specifying the elements of the Oseen tensor.
-;    minimum_separation
+;    radius
 ;        distance of closest approach.
 ;
 ; :Hidden:
@@ -181,6 +180,6 @@ pro oseentensor__define
             tensor: fltarr(3, 3), $
             position: fltarr(3), $
             viscosity: 0., $
-            minimum_separation: 0. $
+            radius: 0. $
            }
 end
