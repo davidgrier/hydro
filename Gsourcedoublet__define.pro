@@ -29,15 +29,13 @@ pro Gsourcedoublet::Compute, r
 
   COMPILE_OPT IDL2, HIDDEN
 
-  if ~self.checkvector(r) then begin
+  if ~(s = self.checkvector(r)) then begin
      self.tensor = identity(3)
      return
   endif
 
-  rr = r - self.position        ; displacement from position of source doublet
-  s = sqrt(total(rr^2))          ; distance from source doublet
-  rr /= s
-  self.tensor = rr # ([1., 1., 1.] - 3.*rr^2) / (8.*!pi*self.viscosity*s^2)
+  dr = (r - self.position)/s    ; displacement from source doublet
+  self.tensor = dr # ([1., 1., 1.] - 3.*dr^2) / (8.*!pi*self.viscosity*s^2)
   self.tensor[*, 2] *= -1.
 end
 

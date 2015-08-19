@@ -30,15 +30,13 @@ pro Gstokesdoublet::Compute, r
 
   COMPILE_OPT IDL2, HIDDEN
 
-  if ~self.checkvector(r) then begin
+  if ~(s = self.checkvector(r)) then begin
      self.tensor = identity(3)
      return
   endif
 
-  rr = r - self.position        ; displacement from position of stokes doublet
-  s = sqrt(total(rr^2))         ; distance from stokes doublet
-  rr /= s
-  self.tensor = (identity(3) - 3.*(rr # rr))/(8.*!pi*self.viscosity*s^3)
+  dr = (r - self.position)/s    ; displacement from stokes doublet
+  self.tensor = (identity(3) - 3.*(dr # dr))/(8.*!pi*self.viscosity*s^3)
   self.tensor[*, 2] *= -1.
 end
 
