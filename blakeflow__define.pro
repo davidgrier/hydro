@@ -60,34 +60,39 @@ end
 ;        3-element force vector
 ;    viscosity
 ;        viscosity of medium
+;    radius
+;        radius of stokeslet source
 ;-
-function blakeflow::Init, position = position, $
-                          force = force, $
-                          viscosity = viscosity
+function blakeflow::Init, _ref_extra = extra 
 
   COMPILE_OPT IDL2, HIDDEN
 
   void = self.flowfield::Init()
   
-  src = flowsource(Gstokeslet(position = position, viscosity = viscosity), $
-                   force = force)
+  src = flowsource(Gstokeslet(_extra = extra), $
+                   _extra = extra)
 
-  help, force
 
   r0 = src.position
   r1 = r0 * [1., 1., -1.]
   h = r0[2]
+  viscosity = src.viscosity
+  force = src.force
+  radius = src.radius
 
   self.add, flowsource(Gstokeslet(position = r1, $
-                                  viscosity = viscosity), $
+                                  viscosity = viscosity, $
+                                  radius = radius), $
                        force = -force)
   
   self.add, flowsource(Gsourcedoublet(position = r1, $
-                                      viscosity = viscosity), $
+                                      viscosity = viscosity, $
+                                      radius = radius), $
                        force = -2.*h*force)
 
   self.add, flowsource(Gstokesdoublet(position = r1, $
-                                      viscosity = viscosity), $
+                                      viscosity = viscosity, $
+                                      radius = radius), $
                        force = 2.*h^2*force)
   return, 1
 end
