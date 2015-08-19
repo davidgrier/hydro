@@ -80,7 +80,7 @@ libdata[libdataItem++] = new Array("./Gstokeslet__define.html", "Gstokeslet__def
   
   
 
-libdata[libdataItem++] = new Array("./makedoc.html", "makedoc.pro", '.pro file in <a href="./dir-overview.html">./ directory</a>', "makedoc.pro", "", "", "", "", "          -1", "");
+libdata[libdataItem++] = new Array("./makedocs.html", "makedocs.pro", '.pro file in <a href="./dir-overview.html">./ directory</a>', "makedocs.pro", "", "", "", "", "          -1", "");
   
 
 libdata[libdataItem++] = new Array("./oseentensor__define.html", "oseentensor__define.pro", '.pro file in <a href="./dir-overview.html">./ directory</a>', "oseentensor__define.pro", "    David G. Grier, New York University.   ", "", " Oseen tensor base class for describing hydrodynamic flows  relative to specified positions.   ", "", "          -1", "    Copyright (c) 2015 David G. Grier  ");
