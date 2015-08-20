@@ -21,16 +21,13 @@ the source.
 
 * `oseentensor`  
    Base class for Oseen tensors.
-
 * `Gstokeslet`  
    Object class for a stokeslet.
 > Reference: C. Pozrikidis, *Boundary Integral and Singularity Methods
 > for Linearized Viscous Flow*
 > (Cambridge University Press, New York, 1992).
-
 * `Gstokesdoublet`  
    Object class for a stokes doublet
-
 * `Gsourcedoublet`  
    Object class for a source doublet
 
@@ -42,11 +39,9 @@ consists of an Oseen tensor and a specified force.
 * `flowsource`  
    Computes the flow velocity at specified positions due to a
    specified Oseen tensor and driving force.
-
 * `flowfield`  
    Computes the flow velocity at specified positions due to a set of
    sources described by `flowsource` objects.
-
 * `blakeflow`  
    Computes the flow velocity at specified positions due to a
    stokeslet driven by a specified force at a specified position above
