@@ -23,9 +23,9 @@ the source.
    Base class for Oseen tensors.
 * `Gstokeslet`  
    Object class for a stokeslet.  
-> Reference: C. Pozrikidis, *Boundary Integral and Singularity Methods
-> for Linearized Viscous Flow*
-> (Cambridge University Press, New York, 1992).
+   Reference: C. Pozrikidis, *Boundary Integral and Singularity Methods
+   for Linearized Viscous Flow*
+   (Cambridge University Press, New York, 1992).
 * `Gstokesdoublet`  
    Object class for a stokes doublet
 * `Gsourcedoublet`  
@@ -47,7 +47,7 @@ consists of an Oseen tensor and a specified force.
    stokeslet driven by a specified force at a specified position above
    a horizontal wall in the plane z = 0.  This flow field is described
    by
-> J. R. Blake, *Proc. Cambridge Phil. Soc.* **70**, 303-310 (1971).
+   J. R. Blake, *Proc. Cambridge Phil. Soc.* **70**, 303-310 (1971).
    
 ### Motion in flow fields
 
