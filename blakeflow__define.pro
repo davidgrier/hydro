@@ -71,7 +71,8 @@ function blakeflow::Init, _ref_extra = extra
 
   COMPILE_OPT IDL2, HIDDEN
 
-  void = self.flowfield::Init()
+  if ~self.flowfield::Init() then $
+     return, 0
   
   src = flowsource(Gstokeslet(_extra = extra), $
                    _extra = extra)

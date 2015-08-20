@@ -25,33 +25,32 @@
 ;+
 ; Check a provided vector to ensure that it has
 ; a compatible type are correct number of elements.
+; Compute the displacement and separation from
+; the source position.
 ;
 ; :Params:
 ;    r : in, required, type=`fltarr(3)`
 ;        Position in Cartesian cooardinates
 ;
-; :Returns:
-;    0 if r is not compatible,
-;    otherwise the maximum of the distance from r to
-;    the source's position and the minimum allowed distance.
-;
 ; :Private:
 ;-
-function oseentensor::CheckVector, r
+pro oseentensor::ComputeDisplacement, r
 
   COMPILE_OPT IDL2, HIDDEN
 
   if ~isa(r, /number, /array) then $
-     return, 0
+     message, 'r must be a numerical array'
 
   if (n_elements(r[*, 0]) ne 3) then $
-     return, 0
+     message, 'r must be a 3-element Cartesian coordinate'
 
   ; only support a single position for now
   if size(r, /n_dimensions) ne 1 then $
-     return, 0
+     message, 'only a single position is supported'
 
-  return, sqrt(total((r - self.position)^2)) > self.radius
+  self.dr = r - self.position
+  self.r = sqrt(total(self.dr^2)) > self.radius
+  self.dr /= self.r
 end
 
 ;+
@@ -83,6 +82,7 @@ pro oseentensor::Compute, r
 
   COMPILE_OPT IDL2, HIDDEN
 
+  self.ComputeDisplacement, r
   self.tensor = identity(3)
 end
      
@@ -168,6 +168,10 @@ end
 ;        3x3 array specifying the elements of the Oseen tensor.
 ;    radius
 ;        distance of closest approach.
+;    dr
+;        displacement of specified point from source position
+;    r
+;        separation of specified point from source position
 ;
 ; :Hidden:
 ;-
@@ -180,6 +184,8 @@ pro oseentensor__define
             tensor: fltarr(3, 3), $
             position: fltarr(3), $
             viscosity: 0., $
-            radius: 0. $
+            radius: 0., $
+            dr: fltarr(3),  $
+            r: 0. $
            }
 end

@@ -29,13 +29,9 @@ pro Gstokeslet::Compute, r
 
   COMPILE_OPT IDL2, HIDDEN
 
-  if ~(s = self.checkvector(r)) then begin
-     self.tensor = identity(3)
-     return
-  endif
-  
-  dr = (r - self.position)/s    ; displacement from stokeslet
-  self.tensor = (identity(3) + dr # dr)/(8.*!pi*self.viscosity*s)
+  self.ComputeDisplacement, r
+  self.tensor = (identity(3) + self.dr # self.dr) / $
+                (8.*!pi*self.viscosity*self.r)
 end
   
 ;+

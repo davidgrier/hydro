@@ -29,13 +29,9 @@ pro Gsourcedoublet::Compute, r
 
   COMPILE_OPT IDL2, HIDDEN
 
-  if ~(s = self.checkvector(r)) then begin
-     self.tensor = identity(3)
-     return
-  endif
-
-  dr = (r - self.position)/s    ; displacement from source doublet
-  self.tensor = dr # ([1., 1., 1.] - 3.*dr^2) / (8.*!pi*self.viscosity*s^2)
+  self.ComputeDisplacement, r
+  self.tensor = self.dr # ([1., 1., 1.] - 3.*self.dr^2) / $
+                (8.*!pi*self.viscosity*self.r^2)
   self.tensor[*, 2] *= -1.
 end
 
