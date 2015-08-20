@@ -22,7 +22,7 @@ the source.
 * `oseentensor`  
    Base class for Oseen tensors.
 * `Gstokeslet`  
-   Object class for a stokeslet.
+   Object class for a stokeslet.  
 > Reference: C. Pozrikidis, *Boundary Integral and Singularity Methods
 > for Linearized Viscous Flow*
 > (Cambridge University Press, New York, 1992).
