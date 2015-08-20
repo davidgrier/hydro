@@ -58,13 +58,13 @@ end
 ;    1 for success, 0 for failure
 ;
 ; :Params:
-;    position
+;    position : in, optional, type=`fltarr(3)`
 ;        3-element position vector
-;    force
+;    force : in, optional, type=`fltarr(3)`, default=`[0.,0.,1.]`
 ;        3-element force vector
-;    viscosity
+;    viscosity : in, optional, type=`float`, default=0.001
 ;        viscosity of medium
-;    radius
+;    radius : in, optional, type=`float`, default=0.
 ;        radius of stokeslet source
 ;-
 function blakeflow::Init, _ref_extra = extra 
