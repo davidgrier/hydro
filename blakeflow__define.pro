@@ -46,6 +46,9 @@ end
 ; blakeflow::GetProperty
 ;
 ; :Keywords:
+;    sources : type=`list`
+;        List of `flowsource` object references to the
+;        elementary flow sources in Blake's formulation.
 ;    _ref_extra : type=keywords
 ;        Properties of the `Gstokeslet` `flowsource` object
 ;        responsible for the flow.
@@ -67,7 +70,7 @@ end
 ; :Returns:
 ;    1 for success, 0 for failure
 ;
-; :Params:
+; :Keywords:
 ;    position : in, optional, type=`fltarr(3)`
 ;        3-element position vector
 ;    _ref_extra : in, optional, type=keywords
