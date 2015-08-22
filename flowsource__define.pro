@@ -51,6 +51,10 @@ end
 
 ;+
 ; flowsource::SetProperty
+;
+; :Keywords:
+;    _extra : type=keywords
+;        Keywords for `oseentensor`
 ;-
 pro flowsource::SetProperty, force = force, $
                              _extra = re
@@ -65,6 +69,9 @@ end
 
 ;+
 ; flowsource::GetProperty
+;
+; :Keywords:
+;    _ref_extra : hidden
 ;-
 pro flowsource::GetProperty, force = force, $
                              oseentensor = oseentensor, $
@@ -85,12 +92,13 @@ end
 ;    1 for success, 0 for failure
 ;
 ; :Params:
-;    oseentensor
+;    oseentensor : in, optional, type=`oseentensor`
 ;        Reference to `oseentensor` object describing flow.
 ;
 ; :Keywords:
 ;    force : in, optional, type=`fltarr(3)`
 ;        Force vector in units of newtons
+;    _ref_extra : in, hidden
 ;-
 function flowsource::Init, oseentensor, $
                            force = force, $

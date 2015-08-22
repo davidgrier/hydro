@@ -17,6 +17,11 @@
 
 ;+
 ; blakeflow::SetProperty
+;
+; :Keywords:
+;    _extra : type=keywords
+;        Properties of `flowsource` objects, appropriately
+;        weighted for Blake's flow solution.
 ;-
 pro blakeflow::SetProperty, _extra = extra
 
@@ -39,6 +44,11 @@ end
 
 ;+
 ; blakeflow::GetProperty
+;
+; :Keywords:
+;    _ref_extra : type=keywords
+;        Properties of the `Gstokeslet` `flowsource` object
+;        responsible for the flow.
 ;-
 pro blakeflow::GetProperty, sources = sources, $
                             _ref_extra = re
@@ -60,12 +70,9 @@ end
 ; :Params:
 ;    position : in, optional, type=`fltarr(3)`
 ;        3-element position vector
-;    force : in, optional, type=`fltarr(3)`, default=`[0.,0.,1.]`
-;        3-element force vector
-;    viscosity : in, optional, type=`float`, default=0.001
-;        viscosity of medium
-;    radius : in, optional, type=`float`, default=0.
-;        radius of stokeslet source
+;    _ref_extra : in, optional, type=keywords
+;        Properties of the `Gstokeslet` `flowsource` object
+;        responsible for the flow.
 ;-
 function blakeflow::Init, position = position, $
                           _ref_extra = extra 
