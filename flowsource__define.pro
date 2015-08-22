@@ -67,11 +67,13 @@ end
 ; flowsource::GetProperty
 ;-
 pro flowsource::GetProperty, force = force, $
+                             oseentensor = oseentensor, $
                             _ref_extra = re
 
   COMPILE_OPT IDL2, HIDDEN
 
   if arg_present(force) then force = self.force
+  if arg_present(oseentensor) then oseentensor = self.oseentensor
 
   self.oseentensor.Getproperty, _extra = re
 end
