@@ -67,26 +67,26 @@ end
 ;    radius : in, optional, type=`float`, default=0.
 ;        radius of stokeslet source
 ;-
-function blakeflow::Init, _ref_extra = extra 
+function blakeflow::Init, position = position, $
+                          _ref_extra = extra 
 
   COMPILE_OPT IDL2, HIDDEN
 
   if ~self.flowfield::Init() then $
      return, 0
   
-  src = flowsource(Gstokeslet(_extra = extra), $
+  src = flowsource(Gstokeslet(position = position, _extra = extra), $
                    _extra = extra)
 
   force = src.force
-  r0 = src.position
-  r1 = r0 * [1., 1., -1.]
-  h = r0[2]
+  r1 = position * [1., 1., -1.]
+  h = position[2]
   
   self.add, src
 
   self.add, flowsource(Gstokeslet(position = r1, _extra = extra), $
                        force = -force)
-  
+
   self.add, flowsource(Gsourcedoublet(position = r1, _extra = extra), $
                        force = -2.*h*force)
 
