@@ -60,15 +60,20 @@ end
 ;    r : in, required, type=`fltarr(3)`
 ;        Position in Cartesian coordinates.
 ;
+; :Keywords:
+;    inverse : in, optional, type=boolean
+;        If set, return inverse of the Oseen tensor
+;
 ; :Returns:
 ;    3x3 real-valued Oseen tensor
 ;-
-function oseentensor::Compute, r
+function oseentensor::Compute, r, $
+                               inverse = inverse
 
   COMPILE_OPT IDL2, HIDDEN
 
   self.Compute, r
-  return, self.tensor
+  return, (keyword_set(inverse)) ? self.tensor : invert(self.tensor)
 end
 
 ;+
