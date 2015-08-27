@@ -73,7 +73,7 @@ function oseentensor::Compute, r, $
   COMPILE_OPT IDL2, HIDDEN
 
   self.Compute, r
-  return, (keyword_set(inverse)) ? self.tensor : invert(self.tensor)
+  return, (keyword_set(inverse)) ? invert(self.tensor) : self.tensor
 end
 
 ;+
