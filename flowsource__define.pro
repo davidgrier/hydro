@@ -32,10 +32,16 @@
 ;    r : in, required, type=`fltarr(3,N)`
 ;        Array of N Cartesian coordinates.
 ;
+; :Keywords:
+;    _extra : in, optional, type=keywords
+;        Keywords for the Compute() method of
+;        the `oseentensor`.
+;
 ; :Returns:
 ;    3xN array of velocity vectors at each coordinate.
 ;-
-function flowsource::Compute, r
+function flowsource::Compute, r, $
+                              _extra = extra
 
   COMPILE_OPT IDL2, HIDDEN
 
@@ -45,7 +51,7 @@ function flowsource::Compute, r
   npts = n_elements(r) / 3
   v = 0.*r
   for i = 0, npts-1 do $
-     v[*, i] = self.oseentensor.compute(r[*, i]) # self.force
+     v[*, i] = self.oseentensor.compute(r[*, i], _extra = extra) # self.force
   return, v
 end
 

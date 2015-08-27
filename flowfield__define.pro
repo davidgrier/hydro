@@ -23,17 +23,23 @@
 ;    r : in, required, type=`fltarr(3,N)`
 ;        Array of N sets of Cartesian coordinates, $\vec{r}$.
 ;
+; :Keywords:
+;    _extra : in, optional, type=keywords
+;        Keywords for the Compute() method of the
+;        `flowsource` object.
+;
 ; :Returns:
 ;    3xN element array of velocity vectors, $\vec{u}(\vec{r})$.
 ;-
-function flowfield::Compute, r
+function flowfield::Compute, r, $
+                             _extra = extra
 
   COMPILE_OPT IDL2, HIDDEN
 
   npts = n_elements(r)/3.
   v = 0.*r
   foreach source, self.sources do $
-     v += source.compute(r)
+     v += source.compute(r, _extra = extra)
 
   return, v
 end
