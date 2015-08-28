@@ -17,13 +17,18 @@
 ; :Params:
 ;    r : in, optional, type=`fltarr(3)`
 ;        Postion of object in Cartesian coordinates [m]
+;
+; :Keywords:
+;    drag : in, optional, type=boolean
+;        Compute the inverse mobility, i.e. the drag.
 ;-
-function mobility::Compute, r
+function mobility::Compute, r, $
+                            drag = drag
 
   COMPILE_OPT IDL2, HIDDEN
 
   self.compute, r
-  return, self.tensor
+  return, keyword_set(drag) ? invert(self.tensor) : self.tensor
 end
 
 ;+
