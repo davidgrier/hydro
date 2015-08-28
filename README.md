@@ -49,6 +49,19 @@ consists of an Oseen tensor and a specified force.
    by
    J. R. Blake, *Proc. Cambridge Phil. Soc.* **70**, 303-310 (1971).
    
+### Mobility tensors
+
+* `mobility`
+   Base class for computing the mobility tensor of a particle
+   in a viscous medium.
+
+* `spheremobility`
+   Mobility tensor for a sphere in a Newtonian fluid
+
+* `spherewallmobility`
+   Mobility tensor for a sphere moving through a Newtonian fluid
+   relative to a solid wall in the plane z = 0.
+
 ### Motion in flow fields
 
 * `faxen`
