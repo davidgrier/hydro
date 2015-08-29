@@ -5,7 +5,7 @@
 ; at specified points $\vec{r}$ due to a set of flow sources.
 ;
 ; :Properties:
-;    sources: list of references to `flowsource` objects.
+;    sources: list of references to `flowsource` and `flowfield` objects.
 ;
 ; :Author:
 ;    David G. Grier, New York University
@@ -25,8 +25,8 @@
 ;
 ; :Keywords:
 ;    _extra : in, optional, type=keywords
-;        Keywords for the Compute() method of the
-;        `flowsource` object.
+;        Keywords for the Compute() method of
+;        `flowsource` objects.
 ;
 ; :Returns:
 ;    3xN element array of velocity vectors, $\vec{u}(\vec{r})$.
@@ -54,7 +54,7 @@ pro flowfield::Add, source
 
   COMPILE_OPT IDL2, HIDDEN
 
-  if isa(source, 'flowsource') then $
+  if isa(source, 'flowsource') || isa(source, 'flowfield') then $
      self.sources.add, source
 end
 
