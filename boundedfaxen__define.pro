@@ -35,7 +35,9 @@ end
 
 ;+
 ; boundedfaxen__define
-;+
+;
+; :Hidden:
+;-
 pro boundedfaxen__define
 
   COMPILE_OPT IDL2, HIDDEN
