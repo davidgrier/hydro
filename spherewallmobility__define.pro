@@ -10,7 +10,9 @@
 ; J. Happel and H. Brenner,
 ; Low Reynolds Number Hydrodynamics
 ; (Kluwer Academic Publishers, Boston, 1991)
+;
 ; Eq. (7-4.28) parallel case
+;
 ; Eq. (7-4.39) perpendicular case
 ;
 ; :Author:
@@ -46,6 +48,8 @@ end
 
 ;+
 ; spherewallmobility__define
+;
+; :Hidden:
 ;-
 pro spherewallmobility__define
 

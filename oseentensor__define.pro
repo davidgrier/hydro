@@ -24,15 +24,15 @@
 
 ;+
 ; Check a provided vector to ensure that it has
-; a compatible type are correct number of elements.
-; Compute the displacement and separation from
+; a compatible type and the correct number of elements.
+; Compute the displacement and distance from
 ; the source position.
 ;
 ; :Params:
 ;    r : in, required, type=`fltarr(3)`
 ;        Position in Cartesian cooardinates
 ;
-; :Private:
+; :Hidden:
 ;-
 pro oseentensor::ComputeDisplacement, r
 
@@ -176,7 +176,7 @@ end
 ;    dr
 ;        displacement of specified point from source position
 ;    r
-;        separation of specified point from source position
+;        distance of specified point from source position
 ;
 ; :Hidden:
 ;-
