@@ -11,6 +11,22 @@
 ;    \right)
 ; $$
 ;
+; Reference:
+; 1. J. R. Blake,
+;    "A Note on the image system for a Stokeslet in a no-slip
+;    boundary,"
+;    Proceedings of the Cambridge Philosophical Society 70, 303
+;    (1971).
+;
+; 2. C. Pozrikidis,
+;    Introduction to Theoretical and Computational Fluid Dynamics
+;    (Oxford University Press, 1997).
+;
+; 3. Josephine Ainley, Sandra Durkin, Rafael Embid, Priya Boindala
+;    and Ricardo Cortez,
+;    "The method of images for regularized Stokeslets,"
+;    Journal of Computational Physics 227, 4600-4616 (2008).
+;
 ; :Author:
 ;    David G. Grier, New York University
 ;
@@ -25,6 +41,8 @@
 ; :Params:
 ;    r : in, required, type=`fltarr(3)`
 ;        Position in Cartesian coordinates.
+;
+; :Note: factor of 4 rather than 8? Ainley.
 ;-
 pro Gstokesdoublet::Compute, r
 
