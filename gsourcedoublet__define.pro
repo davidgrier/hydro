@@ -1,17 +1,19 @@
 ; docformat = 'rst'
 
 ;+
-; Oseen tensor for a source doublet oriented relative to the
-; plane $z = 0$.
-; $$\mathsf{G}_{\alpha \beta}(\vec{r})
+; Oseen tensor for a source doublet, also known as a potential doublet.
+;
+; $$ \mathsf{D}_{\alpha \beta}(\vec{r})
 ;    =
-;    \frac{1 - 2 \delta_{\beta z}}{8 \pi \eta} \,
-;    \frac{\partial}{\partial r_\beta} \left(
-;        \frac{r_\alpha}{r^3}
+;    \frac{1}{8 \pi \eta r} \,
+;    \left(
+;        -\delta_{\alpha\beta}
+;        + 3 \frac{r_\alpha r_\beta}{r^2}
 ;    \right)
 ; $$
 ;
-; Reference:
+; References:
+;
 ; 1. J. R. Blake,
 ;    "A Note on the image system for a Stokeslet in a no-slip
 ;    boundary,"

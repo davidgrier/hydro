@@ -2,16 +2,18 @@
 
 ;+
 ; Oseen tensor for a stokelet.
-; $$\mathsf{G}_{\alpha\beta}(\vec{r})
-; =
-; \frac{1}{8 \pi \eta} \,
-; \left(
-;    \frac{\delta_{\alpha\beta}}{r}
-;    +
-;    \frac{r_\alpha r_\beta}{r^3}
-; \right)$$
 ;
-; Reference:
+; $$ \mathsf{G}_{\alpha\beta}(\vec{r})
+;    =
+;    \frac{1}{8 \pi \eta r} \,
+;    \left(
+;        \delta_{\alpha\beta}
+;        + \frac{r_\alpha r_\beta}{r^2}
+;    \right)
+; $$
+;
+; References:
+;
 ; 1. J. R. Blake,
 ;    "A Note on the image system for a Stokeslet in a no-slip
 ;    boundary,"
