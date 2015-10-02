@@ -1,7 +1,7 @@
 ; docformat = 'rst'
 
 ;+
-; Oseen tensor for a stokes doublet oriented relative to the
+; Oseen tensor for a source doublet oriented relative to the
 ; plane $z = 0$.
 ; $$\mathsf{G}_{\alpha \beta}(\vec{r})
 ;    =
@@ -22,7 +22,12 @@
 ;    Introduction to Theoretical and Computational Fluid Dynamics
 ;    (Oxford University Press, 1997).
 ;
-; 3. Josephine Ainley, Sandra Durkin, Rafael Embid, Priya Boindala
+; 3. Saverio E. Spagnolie and Eric Lauga,
+;    "Hydrodynamics of self-propulsion near a boundary: predictions and
+;    accurate far-field approximations,"
+;    Journal of Fluid Mechanics 700, 105-147 (2012).
+;
+; 4. Josephine Ainley, Sandra Durkin, Rafael Embid, Priya Boindala
 ;    and Ricardo Cortez,
 ;    "The method of images for regularized Stokeslets,"
 ;    Journal of Computational Physics 227, 4600-4616 (2008).
@@ -35,35 +40,34 @@
 ;-
 
 ;+
-; Compute the Oseen tensor for a stokes doublet at a specified
+; Compute the Oseen tensor for a source doublet at a specified
 ; position.
+;
+; :Note: Spagnolie & Lauga, Eq. (A8).
 ;
 ; :Params:
 ;    r : in, required, type=`fltarr(3)`
 ;        Position in Cartesian coordinates.
-;
-; :Note: factor of 4 rather than 8? Ainley.
 ;-
-pro Gstokesdoublet::Compute, r
+pro Gsourcedoublet::Compute, r
 
   COMPILE_OPT IDL2, HIDDEN
 
   self.ComputeDisplacement, r
-  self.tensor = (identity(3) - 3.*(self.dr # self.dr)) / $
+  self.tensor = (-identity(3) + 3.*(self.dr # self.dr)) / $
                 (8.*!pi*self.viscosity*self.r^3)
-  self.tensor[*, 2] *= -1.
 end
 
 ;+
-; Gstokesdoublet__define
+; Gsourcedoublet__define
 ;
 ; :Hidden:
 ;-
-pro Gstokesdoublet__define
+pro Gsourcedoublet__define
 
   COMPILE_OPT IDL2, HIDDEN
 
-  struct = {Gstokesdoublet, $
+  struct = {Gsourcedoublet, $
             inherits oseentensor $
            }
 end

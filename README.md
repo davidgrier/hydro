@@ -26,8 +26,8 @@ the source.
    Reference: C. Pozrikidis, *Boundary Integral and Singularity Methods
    for Linearized Viscous Flow*
    (Cambridge University Press, New York, 1992).
-* `Gstokesdoublet`  
-   Object class for a stokes doublet
+* `Gstokesletdipole`  
+   Object class for a stokeslet dipole
 * `Gsourcedoublet`  
    Object class for a source doublet
 

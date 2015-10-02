@@ -11,6 +11,27 @@
 ;    \frac{r_\alpha r_\beta}{r^3}
 ; \right)$$
 ;
+; Reference:
+; 1. J. R. Blake,
+;    "A Note on the image system for a Stokeslet in a no-slip
+;    boundary,"
+;    Proceedings of the Cambridge Philosophical Society 70, 303
+;    (1971).
+;
+; 2. C. Pozrikidis,
+;    Introduction to Theoretical and Computational Fluid Dynamics
+;    (Oxford University Press, 1997).
+;
+; 3. Saverio E. Spagnolie and Eric Lauga,
+;    "Hydrodynamics of self-propulsion near a boundary: predictions and
+;    accurate far-field approximations,"
+;    Journal of Fluid Mechanics 700, 105-147 (2012).
+;
+; 4. Josephine Ainley, Sandra Durkin, Rafael Embid, Priya Boindala
+;    and Ricardo Cortez,
+;    "The method of images for regularized Stokeslets,"
+;    Journal of Computational Physics 227, 4600-4616 (2008).
+;
 ; :Author:
 ;    David G. Grier, New York University
 ;
@@ -20,6 +41,8 @@
 
 ;+
 ; Compute the Oseen tensor for a stokeslet at a specified position
+;
+; :Note: Spagnolie & Lauga, Eq. (2.4).
 ;
 ; :Params:
 ;    r : in, required, type=`fltarr(3)`

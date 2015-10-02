@@ -29,17 +29,21 @@ pro blakeflow::SetProperty, _extra = extra
 
   stokeslet = self.sources[0]
   stokeslet.SetProperty, _extra = extra
-  stokeslet.GetProperty, position = r0, force = force, $
+  stokeslet.GetProperty, position = position, force = force, $
                          viscosity = eta
 
-  r1 = r0*[1., 1., -1]
-  h = r0[2]
-  (self.sources[1]).SetProperty, viscosity = eta, position = r1, $
+  rstar = position * [1., 1., -1.]
+  fstar = force * [1., 1., -1.]
+  h = position[2]
+  
+  (self.sources[1]).SetProperty, viscosity = eta, position = rstar, $
      force = -force
-  (self.sources[2]).SetProperty, viscosity = eta, position = r1, $
-     force = -2.*h*force
-  (self.sources[3]).SetProperty, viscosity = eta, position = r1, $
-     force = 2.*h^2*force
+
+  (self.sources[2]).SetProperty, viscosity = eta, position = rstar, $
+     orientation = fstar, force = 2.*h*[0., 0., 1.]*force
+
+  (self.sources[3]).SetProperty, viscosity = eta, position = rstar, $
+     force = -2.*h^2*fstar
 end
 
 ;+
@@ -89,19 +93,24 @@ function blakeflow::Init, position = position, $
                    _extra = extra)
 
   force = src.force
-  r1 = position * [1., 1., -1.]
+  rstar = position * [1., 1., -1.]
+  fstar = force * [1., 1., -1.]
   h = position[2]
   
   self.add, src
-
-  self.add, flowsource(Gstokeslet(position = r1, _extra = extra), $
+  
+  self.add, flowsource(Gstokeslet(position = rstar, $
+                                  _extra = extra), $
                        force = -force)
 
-  self.add, flowsource(Gsourcedoublet(position = r1, _extra = extra), $
-                       force = -2.*h*force)
+  self.add, flowsource(Gstokesletdipole(position = rstar, $
+                                        orientation = fstar, $
+                                        _extra = extra), $
+                       force = 2.*h*[0., 0., 1.]*force)
 
-  self.add, flowsource(Gstokesdoublet(position = r1, _extra = extra), $
-                       force = 2.*h^2*force)
+  self.add, flowsource(Gsourcedoublet(position = rstar, $
+                                      _extra = extra), $
+                       force = -2.*h^2*fstar)
   return, 1
 end
 
