@@ -8,11 +8,11 @@
 ; $$ \vec{v}(\vec{r}) =
 ;    \mathsf{G}(\vec{s}) \cdot \vec{f}
 ;    - \mathsf{G}(\vec{s}^\ast) \cdot \vec{f}
-;    + 2 h \mathsf{G_D}(\vec{s}^\ast, \hat{e}^\ast) \cdot f_z \hat{z}
-;    - 2 h^2 \mathsf{D}(\vec{s}^\ast) \cdot \vec{f}^\ast,
+;    + 2 z_0 \mathsf{G_D}(\vec{s}^\ast, \hat{e}^\ast) \cdot f_z \hat{z}
+;    - 2 z_0^2 \mathsf{D}(\vec{s}^\ast) \cdot \vec{f}^\ast,
 ; $$
 ; where $\vec{s} = \vec{r} - \vec{r}_0$,
-; $\vec{s}^\ast = \vec{s} - 2 h \hat{z}$, and
+; $\vec{s}^\ast = \vec{s} - 2 z_0 \hat{z}$, and
 ; $\hat{e}^\ast = e_x \hat{x} + e_y \hat{y} - e_z \hat{z}$, and
 ; $\vec{f}^\ast = f \hat{e}^\ast$.
 ;
