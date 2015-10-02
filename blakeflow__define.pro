@@ -8,7 +8,7 @@
 ; $$ \vec{v}(\vec{r}) =
 ;    \mathsf{G}(\vec{s}) \cdot \vec{f}
 ;    - \mathsf{G}(\vec{s}^\ast) \cdot \vec{f}
-;    + 2 z_0 \mathsf{G_D}(\vec{s}^\ast, \hat{e}^\ast) \cdot f_z \hat{z}
+;    + 2 z_0 \mathsf{G_D}(\vec{s}^\ast, \hat{e}^\ast) \cdot f \hat{z}
 ;    - 2 z_0^2 \mathsf{D}(\vec{s}^\ast) \cdot \vec{f}^\ast,
 ; $$
 ; where $\vec{s} = \vec{r} - \vec{r}_0$,
