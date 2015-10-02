@@ -49,7 +49,7 @@ pro oseentensor::ComputeDisplacement, r
      message, 'only a single position is supported'
 
   self.dr = r - self.position
-  self.r = sqrt(total(self.dr^2)) > self.radius
+  self.r = norm(self.dr) > self.radius
   self.dr /= self.r
 end
 

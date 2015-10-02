@@ -87,7 +87,7 @@ pro Gstokesletdipole::SetProperty, orientation = orientation, $
   COMPILE_OPT IDL2, HIDDEN
 
   if isa(orientation, /number, /array) && (n_elements(orientation) eq 3) then $
-     self.orientation = float(orientation)/sqrt(total(orientation^2))
+     self.orientation = float(orientation)/norm(orientation)
 
   self.oseentensor::SetProperty, _extra = ex
 end
@@ -103,7 +103,7 @@ function Gstokesletdipole::Init, orientation = orientation, $
   COMPILE_OPT IDL2, HIDDEN
 
   if isa(orientation, /number, /array) && (n_elements(orientation) eq 3) then $
-     self.orientation = float(orientation)/sqrt(total(orientation^2)) $
+     self.orientation = float(orientation)/norm(orientation) $
   else $
      self.orientation = [0., 0., 1.]
 
