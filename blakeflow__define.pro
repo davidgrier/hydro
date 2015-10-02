@@ -1,12 +1,47 @@
 ; docformat = 'rst'
 
 ;+
-; Flow field at specified points due to a stokeslet near
-; a horizontal wall in the plane $z = 0$.
+; Flow field $\vec{u}(\vec{r})$ at $\vec{r}$ due to a point force
+; $\vec{f}$ acting at position $\vec{r}_0$
+; near a horizontal wall in the plane $z = 0$.
 ;
-; Reference:
-; J. R. Blake, "A note on the image system for a stokeslet in
-; a no-slip boundary," Proc. Cambridge Phil. Soc. 70, 303-310 (1971).
+; $$ \vec{v}(\vec{r}) =
+;    \mathsf{G}(\vec{s}) \cdot \vec{f}
+;    - \mathsf{G}(\vec{s}^\ast) \cdot \vec{f}
+;    + 2 h \mathsf{G_D}(\vec{s}^\ast, \hat{e}^\ast) \cdot f_z \hat{z}
+;    - 2 h^2 \mathsf{D}(\vec{s}^\ast) \cdot \vec{f}^\ast,
+; $$
+; where $\vec{s} = \vec{r} - \vec{r}_0$,
+; $\vec{s}^\ast = \vec{s} - 2 h \hat{z}$, and
+; $\hat{e}^\ast = e_x \hat{x} + e_y \hat{y} - e_z \hat{z}$, and
+; $\vec{f}^\ast = f \hat{e}^\ast$.
+;
+; $\mathsf{G}(\vec{r})$ is the Oseen tensor for a stokeslet,
+; $\mathsf{G_D}(\vec{r},\hat{d})$ is the Oseen tensor for a stokeslet
+; dipole oriented in direction $\hat{d}$, and
+; $\mathsf{D}(\vec{r})$ is the Oseen tensor for a source doublet.
+;
+; References:
+;
+; 1. J. R. Blake,
+;    "A Note on the image system for a Stokeslet in a no-slip
+;    boundary,"
+;    Proceedings of the Cambridge Philosophical Society 70, 303
+;    (1971).
+;
+; 2. C. Pozrikidis,
+;    Introduction to Theoretical and Computational Fluid Dynamics
+;    (Oxford University Press, 1997).
+;
+; 3. Saverio E. Spagnolie and Eric Lauga,
+;    "Hydrodynamics of self-propulsion near a boundary: predictions and
+;    accurate far-field approximations,"
+;    Journal of Fluid Mechanics 700, 105-147 (2012).
+;
+; 4. Josephine Ainley, Sandra Durkin, Rafael Embid, Priya Boindala
+;    and Ricardo Cortez,
+;    "The method of images for regularized Stokeslets,"
+;    Journal of Computational Physics 227, 4600-4616 (2008).
 ;
 ; :Author:
 ;    David G. Grier, New York University
