@@ -75,7 +75,7 @@ pro blakeflow::SetProperty, _extra = extra
      force = -force
 
   (self.sources[2]).SetProperty, viscosity = eta, position = rstar, $
-     orientation = fstar, force = 2.*h*[0., 0., 1.]*force
+     orientation = fstar, force = 2.*h*norm(force)*[0., 0., 1.]
 
   (self.sources[3]).SetProperty, viscosity = eta, position = rstar, $
      force = -2.*h^2*fstar
@@ -123,7 +123,7 @@ function blakeflow::Init, position = position, $
 
   if ~self.flowfield::Init() then $
      return, 0
-  
+
   src = flowsource(Gstokeslet(position = position, _extra = extra), $
                    _extra = extra)
 
@@ -141,7 +141,7 @@ function blakeflow::Init, position = position, $
   self.add, flowsource(Gstokesletdipole(position = rstar, $
                                         orientation = fstar, $
                                         _extra = extra), $
-                       force = 2.*h*[0., 0., 1.]*force)
+                       force = 2.*h*norm(force)*[0., 0., 1.])
 
   self.add, flowsource(Gsourcedoublet(position = rstar, $
                                       _extra = extra), $
