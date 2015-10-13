@@ -38,12 +38,8 @@ function flowfield::Compute, r, $
 
   npts = n_elements(r)/3.
   v = 0.*r
-  foreach source, self.sources do begin
-     dv = source.compute(r, _extra = extra)
-;     print, 'force:', source.force
-;     print, 'velocity:', dv
-     v += dv
-  endforeach
+  foreach source, self.sources do $
+     v += source.compute(r, _extra = extra)
 
   return, v
 end

@@ -123,7 +123,7 @@ function faxen::Init, radius = radius, $
 end
      
 ;+
-; faxen_define
+; faxen__define
 ;
 ; :Fields:
 ;    radius
